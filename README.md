@@ -13,6 +13,8 @@ Docker is a popular platform that allows developers to develop, ship, and run ap
 
 > Docker Hub: A cloud-based registry provided by Docker where users can find and share Docker images publicly or privately. It's a central repository for Docker images.
 
+![Docker Image](https://github.com/PriyathamVarma/docker/blob/main/Images/docker-1.png)
+
 Using Docker, developers can package their applications and all their dependencies into a container, which can then be easily deployed and executed on any system running Docker, regardless of its underlying infrastructure. This eliminates the "it works on my machine" problem and streamlines the deployment process.
 
 Docker is widely used in various industries, including software development, DevOps, cloud computing, and microservices architecture, as it promotes consistency, scalability, and flexibility in managing applications and services.
