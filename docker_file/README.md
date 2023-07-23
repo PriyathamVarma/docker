@@ -37,8 +37,19 @@ CMD ["npm", "start"]
 3. Build the Docker Image: Open a terminal or command prompt, navigate to the folder containing the Dockerfile, and run the docker build command:
 
 ```bash
-docker build -t your_image_name .
+docker build <Image_ID> <Your_Image_Name> .
 ```
+
+OR 
+
+ ```bash
+
+docker build .
+
+```
+
+This is for building the docker image in the same path.
+
 
 4. Replace your_image_name with a desired name for your Docker image. The . at the end of the command indicates the build context, which means Docker will look for files in the current directory.
 
