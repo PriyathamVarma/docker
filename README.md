@@ -23,5 +23,6 @@ Docker is widely used in various industries, including software development, Dev
 
 Useful Resources:
 
-[Play with Docker - web-based](https://labs.play-with-docker.com/)
+1. [Play with Docker - web-based](https://labs.play-with-docker.com/)
+2. [Docker download for desktop](https://www.docker.com/products/docker-desktop/)
 
