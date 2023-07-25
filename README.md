@@ -27,7 +27,7 @@ Docker is widely used in various industries, including software development, Dev
 | 02 | [Docker Networks](https://github.com/PriyathamVarma/docker/tree/main/container_networks) | About Docker networks and basics | 
 | 03 | [Docker Images](https://github.com/PriyathamVarma/docker/tree/main/docker_images) | About Docker Images and its commands | 
 | 04 | [Docker File](https://github.com/PriyathamVarma/docker/tree/main/docker_file) | About docker files and how to build them | 
-
+| 05 | [Docker Volumes](https://github.com/PriyathamVarma/docker/tree/main/container_volumes) | About docker volumes | 
 
 Useful Resources:
 
