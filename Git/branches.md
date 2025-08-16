@@ -123,39 +123,166 @@ Diagram of branching:
 
 ---
 
-## Other commands
+## Pushing Changes
 
-| Command                                         | Description                  |
-| ----------------------------------------------- | ---------------------------- |
-| `git push --set-upstream origin <branche-name>` | Changing the branch upstream |
+| Command                                        | Description                                             |
+| ---------------------------------------------- | ------------------------------------------------------- |
+| `git push --set-upstream origin <branch-name>` | Push branch to remote for the first time & set upstream |
+| `git push`                                     | Push commits to the remote (after upstream is set)      |
+
+> 💡 Setting upstream links your local branch with the remote one.  
+> Next time you can just use `git push` or `git pull` without extra arguments.
 
 ---
 
-### Merging branch
+## Merging Branches 🔀
 
-git merge <branch-to-merge> from master branch
+To merge a feature branch into `main`:
 
-### Understandinh HEAD
+```bash
+git checkout main
+git merge <branch-to-merge>
+```
 
-- Latest commits in a branch
+- If there are conflicts → Git will mark them inside the file (`<<<<<<<` markers).
+- Fix conflicts → `git add <file>` → `git commit`.
 
-### Understanding Detached HEAD
+---
 
-### Git switch(git 2.23)
+## Understanding HEAD 📌
 
-### deleting working directory changes
+- **HEAD** points to the **current commit** you’re working on.
+- Usually, HEAD points to the **latest commit of the current branch**.
 
-- git rm <file-name>
+Example:
 
-### Undoing unstaged changes
+```
+(main) A---B---C (HEAD)
+```
 
-git clean
+Here, HEAD points to commit **C** on the `main` branch.
 
-### Undoing staged changes
+---
 
-git reset <log>
+## Detached HEAD State 🧩
 
-git restore
+- Happens when HEAD points **directly to a commit** instead of a branch.
+
+- Example:
+
+  ```bash
+  git checkout a1b2c3d
+  ```
+
+  Now you’re not on `main` or any branch → just at commit `a1b2c3d`.
+
+- Any new commits here will be "lost" unless you create a new branch:
+
+  ```bash
+  git checkout -b hotfix-123
+  ```
+
+---
+
+## Git Switch (since Git 2.23) 🔄
+
+`git switch` is a simpler alternative to `git checkout` for branch operations.
+
+```bash
+git switch <branch-name>        # Switch branches
+git switch -c <new-branch-name> # Create & switch
+```
+
+---
+
+## Deleting Working Directory Changes 🗑️
+
+- Remove a file from Git & working directory:
+
+  ```bash
+  git rm <file-name>
+  git commit -m "Removed file"
+  ```
+
+- If you only want to delete it from Git (but keep locally):
+
+  ```bash
+  git rm --cached <file-name>
+  ```
+
+---
+
+## Undoing Changes 🔙
+
+### Undoing Unstaged Changes
+
+```bash
+git restore <file>
+```
+
+- Discards changes in working directory for that file.
+
+Or clean everything untracked:
+
+```bash
+git clean -fd
+```
+
+- `-f` = force, `-d` = delete untracked directories.
+  ⚠️ Use with caution — this **permanently deletes untracked files**.
+
+---
+
+### Undoing Staged Changes
+
+```bash
+git reset <file>
+```
+
+- Removes file from staging area, but keeps changes in working directory.
+
+---
+
+## Git Reset (3 Modes) 🔧
+
+1. **Soft Reset**
+
+   ```bash
+   git reset --soft <commit-id>
+   ```
+
+   - Moves HEAD to given commit.
+   - Keeps changes in **staging area** (you can recommit them).
+
+2. **Mixed Reset** (default)
+
+   ```bash
+   git reset <commit-id>
+   ```
+
+   - Moves HEAD to commit.
+   - Keeps changes in **working directory**, unstages them.
+
+3. **Hard Reset**
+
+   ```bash
+   git reset --hard <commit-id>
+   ```
+
+   - Moves HEAD to commit.
+   - **Deletes all changes** in staging and working directory.
+     ⚠️ Dangerous – cannot be undone.
+
+---
+
+## Deleting Branches 🧹
+
+```bash
+git branch -d <branch>   # Delete local branch (safe, only if merged)
+git branch -D <branch>   # Force delete branch (even if unmerged)
+
+git push origin --delete <branch>  # Delete remote branch
+```
 
 ---
 
@@ -164,3 +291,8 @@ git restore
 - Branches = safe environment to develop features.
 - You can **create, switch, merge, delete** branches easily.
 - Branching makes Git powerful for teamwork and large projects.
+- HEAD = pointer to latest commit.
+- Detached HEAD = not on a branch (useful for exploring old commits).
+- `git switch` is the modern way to switch branches.
+- Use **reset** carefully → `--soft`, `--mixed`, `--hard` behave very differently.
+- Branches can be safely deleted locally or remotely.
