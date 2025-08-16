@@ -123,6 +123,14 @@ Diagram of branching:
 
 ---
 
+## Other commands
+
+| Command                                         | Description                  |
+| ----------------------------------------------- | ---------------------------- |
+| `git push --set-upstream origin <branche-name>` | Changing the branch upstream |
+
+---
+
 ✅ **Summary**
 
 - Branches = safe environment to develop features.
