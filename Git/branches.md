@@ -131,6 +131,34 @@ Diagram of branching:
 
 ---
 
+### Merging branch
+
+git merge <branch-to-merge> from master branch
+
+### Understandinh HEAD
+
+- Latest commits in a branch
+
+### Understanding Detached HEAD
+
+### Git switch(git 2.23)
+
+### deleting working directory changes
+
+- git rm <file-name>
+
+### Undoing unstaged changes
+
+git clean
+
+### Undoing staged changes
+
+git reset <log>
+
+git restore
+
+---
+
 ✅ **Summary**
 
 - Branches = safe environment to develop features.
