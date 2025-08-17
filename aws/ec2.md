@@ -216,6 +216,84 @@ The top 0.5% know:
 
 > The biggest cost/performance wins come from **understanding Nitro, placement groups, Spot strategy, and IOPS math** — not just launching bigger instances.
 
-### Instance type basics
+---
 
-### Security groups and Classic ports
+## 🔐 **Instance type basics**
+
+When you launch an EC2 instance, you choose its **instance type** (e.g., `t2.micro`, `t3.large`).
+
+- It defines **CPU, RAM, storage, and network performance**.
+- For practice, we usually use **free-tier eligible** instances like `t2.micro`.
+
+---
+
+## 🛡️ **Security groups (SGs)**
+
+Think of a **security group as a virtual firewall** 🔥 that controls **who can talk to your instance**.
+
+- SGs regulate **traffic at the instance level**.
+- You control **Inbound** (who can reach the server) & **Outbound** (who the server can reach).
+- Example:
+
+  - Allow inbound **port 22** → so you can SSH into the server.
+  - Allow inbound **port 80/443** → so the world can access your website.
+  - By default, **outbound is open** (your server can reach the internet).
+
+---
+
+## 📊 **Diagram for Security Groups**
+
+```
+       Internet
+           |
+           v
+     +------------+
+     | Security   |
+     |  Group     |
+     +------------+
+   (Rules: 22,80,443)
+           |
+           v
+     +------------+
+     |   EC2      |
+     | Instance   |
+     +------------+
+```
+
+---
+
+## 📡 **Classic Ports**
+
+Here are the most important "classic" ports you’ll always use:
+
+- **22** → SSH (remote login to Linux)
+- **80** → HTTP (websites without SSL)
+- **443** → HTTPS (secure websites)
+
+Other examples:
+
+- **3306** → MySQL
+- **5432** → PostgreSQL
+- **6379** → Redis
+- **27017** → MongoDB
+
+---
+
+## 🧑‍💻 **Hands-on Example**
+
+👉 Suppose you launched an EC2 for hosting a Django app:
+
+1. Open AWS Console → EC2 → Select instance → Security Groups.
+2. Add inbound rules:
+
+   - `22 (SSH)` → My IP only (safe).
+   - `80 (HTTP)` → 0.0.0.0/0 (worldwide access).
+   - `443 (HTTPS)` → 0.0.0.0/0 (worldwide secure access).
+
+3. Save.
+4. Now test:
+
+   - `ssh -i key.pem ec2-user@<public-ip>` → works because port 22 is open.
+   - `http://<public-ip>` → works because port 80 is open.
+
+---
