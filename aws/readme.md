@@ -5,6 +5,8 @@
 
 ---
 
+![Cloud types](https://github.com/PriyathamVarma/docker/blob/main/Images/AWS-Types.drawio.png)
+
 ## What is Cloud Computing?
 
 Cloud Computing (CC) is the **on-demand delivery of computing resources** over the internet. Instead of maintaining physical servers, organizations can use virtualized resources as needed.
