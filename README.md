@@ -1,4 +1,4 @@
-# Docker
+# Docker notes
 Learning Docker in an easy way
 
 Docker is a popular platform that allows developers to develop, ship, and run applications in containers. Containers are lightweight, isolated environments that package applications and all their dependencies, ensuring consistent behavior across different environments. Docker simplifies the process of creating, deploying, and managing applications by providing a consistent runtime environment regardless of the host system's configuration.
