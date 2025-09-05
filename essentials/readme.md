@@ -88,4 +88,53 @@ CMD ["npm", "start"]
 
 ---
 
-✅ With this setup, your React app runs inside Docker but is accessible via `localhost:3000` on your machine.
+## 📤 Pushing to Docker Hub
+
+### 1) Tag the image
+
+```bash
+docker tag docker-react:latest <your-username>/docker-react:latest
+```
+
+Example:
+
+```bash
+docker tag docker-react:latest varmavatsavaye/docker-react:latest
+```
+
+### 2) Log in to Docker Hub
+
+```bash
+docker login
+```
+
+* Username: your Docker Hub username
+* Password: your password OR a Personal Access Token (if you have 2FA enabled)
+
+### 3) Push to Docker Hub
+
+```bash
+docker push <your-username>/docker-react:latest
+```
+
+Example:
+
+```bash
+docker push varmavatsavaye/docker-react:latest
+```
+
+### 4) Use it anywhere
+
+Anyone can now pull and run your image:
+
+```bash
+docker pull <your-username>/docker-react:latest
+docker run -p 3000:3000 <your-username>/docker-react:latest
+```
+
+Example:
+
+```bash
+docker pull varmavatsavaye/docker-react:latest
+docker run -p 3000:3000 varmavatsavaye/docker-react:latest
+```
